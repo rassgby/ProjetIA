@@ -1,0 +1,23 @@
+services:
+  # Backend FastAPI
+  - type: web
+    name: malware-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PORT
+        value: 8000
+    
+  # Frontend Streamlit
+  - type: web
+    name: malware-dashboard
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "streamlit run app/streamlit_app.py --server.port $PORT --server.address 0.0.0.0"
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: malware-api
+          property: url

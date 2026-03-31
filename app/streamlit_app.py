@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 import pandas as pd
 import time
 
@@ -83,7 +84,7 @@ if uploaded_file is not None:
             # Envoi du fichier à FastAPI
             files = {"file": (uploaded_file.name, uploaded_file.getvalue(), "application/octet-stream")}
             start_time = time.time()
-            response = requests.post("http://localhost:8000/predict/", files=files)
+            response = requests.post(f"{os.getenv("API_URL", "http://localhost:8000")}/predict/", files=files)
             end_time = time.time()
             
             if response.status_code == 200:
