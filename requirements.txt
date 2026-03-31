@@ -40,8 +40,6 @@ charset-normalizer==3.4.4
 chroma-hnswlib==0.7.6
 chromadb==0.5.5
 click==8.1.8
-codegen==0.56.17
-codegen-api-client==1.0.0
 codeowners==0.8.0
 coloredlogs==15.0.1
 colorlog==6.9.0
@@ -72,7 +70,6 @@ executing==2.2.0
 fastapi==0.115.0
 faster-whisper==1.2.1
 fastjsonschema==2.21.1
-fastmcp==2.11.3
 filelock==3.20.1
 Flask==3.0.0
 Flask-Bcrypt==1.0.1
