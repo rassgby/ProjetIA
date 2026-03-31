@@ -17,7 +17,4 @@ services:
     startCommand: "streamlit run app/streamlit_app.py --server.port $PORT --server.address 0.0.0.0"
     envVars:
       - key: API_URL
-        fromService:
-          type: web
-          name: malware-api
-          property: url
+        value: "https://malware-api.onrender.com"
